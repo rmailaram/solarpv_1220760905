@@ -1,0 +1,54 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+<div class="container">
+    <section id="section2">
+        <div class="row">
+            <div class="column" id="column1">
+                <ul id=column1list1>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li> | </li>
+                    <li><a href="{% url 'login' %}"> Login</a></li>
+                </ul>
+                <div id="lists">
+                    PV Module
+                    <ul>
+                        <li><a href="{% url 'certification' %}">Testing & Certification</a></li>
+                        <li><a href="{% url 'clients' %}">Clients List</a></li>
+                    </ul>
+                    PV System Performance
+                    <ul>
+                        <li><a href="{% url 'products' %}">Products Lists</a></li>
+                        <li><a href="{% url 'teststandards' %}">Test Standard</a></li>
+                        <li><a href="{% url 'certification' %}">Certifications</a></li>
+                        <li><a href="{% url 'locations' %}">Locations</a></li>
+                    </ul>
+                    Data Analytics
+                    <ul>
+                        <li><a href="">Module Lifetime Prediction</a></li>
+                        <li><a href="">Energy Prediction</a></li>
+                    </ul>
+                    Cybersecurity and Smart Grid Technologies<br><br>
+                    Solar PV University
+                </div>
+            </div>
+            <div class="column" id="column2">Featured Contents</div>
+            <div class="column" id="column3">
+                <div id="column3header">News & Events</div>
+                <div id="column3list">
+                    <ul>
+                        <li><a href="">PhotoVoltaic Technical Conference to take place in Marseille, France from 26 to
+                                28 April
+                                2017</a></li>
+                        <li><a href="">Trump is next US president</a></li>
+                        <li><a href="">Syrian forces recapture Aleppo</a></li>
+                        <li><a href="">Senate votes on SCOTUS nominee</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

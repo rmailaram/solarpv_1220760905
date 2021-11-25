@@ -1,0 +1,74 @@
+{% extends "base_template.html" %}
+{% block content %}
+<div class="col-md-12">
+
+    <form method="POST" class="post-form" action="/locations/add">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Enter Location Details</h3>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Address 1:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="address1" required><br><br>
+
+                </div>
+                <label class="col-sm-2 col-form-label">Address 2:</label>
+                <div class="col-sm-4">
+                    <input type="text" name="address2" required><br><br>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-4">
+                    <input type="text" name="city" required><br><br>
+                </div>
+                <label class="col-sm-2 col-form-label">State</label>
+                <div class="col-sm-4">
+                    <input type="text" name="state" required><br><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Postal Code</label>
+                <div class="col-sm-4">
+                    <input type="text" name="postalcode" required><br><br>
+                </div>
+                <label class="col-sm-2 col-form-label">Country</label>
+                <div class="col-sm-4">
+                    <input type="text" name="country" required><br><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Phone Number</label>
+                <div class="col-sm-4">
+                    <input type="text" name="phonenumber" required><br><br>
+                </div>
+                <label class="col-sm-2 col-form-label">Fax Number</label>
+                <div class="col-sm-4">
+                    <input type="text" name="faxnumber" required><br><br>
+                </div>
+            </div>
+            <!-- hidden -->
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Client ID</label>
+                <div class="col-sm-4">
+                    <input type="text" name="clientid" value=1 required hidden><br><br>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

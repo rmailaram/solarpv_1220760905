@@ -1,0 +1,66 @@
+header {
+    display: flex;
+    justify-content: space-around;
+}
+#sun {
+    height: 200px;
+    width: 200px;
+}
+#logo {
+   flex-basis: 400px;
+}
+#menu {
+    display: flex;
+    justify-content: space-around;
+}
+.button {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 15px 15px;
+}
+#login {
+    text-align: center;
+}
+#home {
+    display: flex;
+    justify-content: space-around;
+}
+#register {
+    text-align: center;
+}
+#certification {
+    text-align: center;
+}
+main > div {
+    padding: 20px;
+}
+#center {
+    flex-basis: 800px;
+    text-align: center;
+}
+#foot {
+    display: flex;
+}
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
+}

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>Portal - solarPV</title>
+    <link rel="stylesheet" href="{% static 'solarpv/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'index' %}"><img src="{% static 'solarpv/img/happy-sun.svg' %}" alt="Happy Sun" id="sun"></a>
+        <div id="logo">
+            <h1>solarPV</h1>
+            <h2>Research & Development</h2>
+        </div>
+        <hr>
+        <nav id="topnav">
+            <a href="aboutus.html">About Us</a> |
+            <a href="contactus.html">Contact Us</a> |
+            <a href="https://facebook.com">Facebook</a> |
+            <a href="https://twitter.com">Twitter</a>
+        </nav>
+    </header>
+    <hr>
+    <nav id="menu">
+        <a href="racks.html">Racks & Trackers</a>
+        <a href="pvmodule.html">PV Module</a>
+        <a href="pvsystems.html">PV Systems</a>
+        <a href="analytics.html">Data Analytics</a>
+        <a href="cybersecurity.html">Cybersecurity</a>
+    </nav>
+    <hr>
+    <main id="portal">
+        <h2>Portals</h2>
+        <h3>Client</h3>
+        <form action="/action_page.php" method="GET" id="client">
+            Client ID: <input type="text" name="clientid" maxlength="6" required><br>
+            Client Code: <input type="text" name="clientcode" required><br>
+            Client Name: <input type="text" name="clientname" required><br>
+            Client Type: <input type="text" name="clienttype" required><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+        <h3>Location</h3>
+        <form action="/action_page.php" method="get" id="location">
+            Location ID: <input type="text" name="locationid" required><br>
+            Client ID: <input type="text" name="clientid" maxlength="6" required><br>
+            Address Line 1: <input type="text" name="address1" required><br>
+            Address Line 2: <input type="text" name="address2"><br>
+            City: <input type="text" name="city" required><br>
+            State: <input type="text" name="state" maxlength="2" required><br>
+            Postal Code: <input type="text" name="postalcode" maxlength="5" required><br>
+            Country: <input type="text" name="country" required><br>
+            Phone Number: <input type="number" name="phonenumber" maxlength="10" required><br>
+            Fax Number: <input type="number" name="faxnumber" maxlength="10"><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+        <h3>Product</h3>
+        <form action="/action_page.php" method="get" id="product">
+            Model Number: <input type="text" name="modelnum" required><br>
+            Name: <input type="text" name="name" required><br>
+            Cell Technology: <input type="text" name="celltechnology" required><br>
+            Cell Manufacturer: <input type="text" name="cellmanufacturer" required><br>
+            Number of Cells: <input type="number" name="numberofcells" required><br>
+            Number of Cells in Series: <input type="number" name="numcellsinseries" required><br>
+            Number of Series Strings: <input type="number" name="numseriesstrings" required><br>
+            Number of Diodes: <input type="number" name="numdiodes" required><br>
+            Product Length (mm): <input type="number" name="productlength" required><br>
+            Product Width (mm): <input type="number" name="productwidth" required><br>
+            Product Weight (g): <input type="number" name="productweight" required><br>
+            Superstrate Type: <input type="text" name="superstratetype" required><br>
+            Superstrate Manufacturer: <input type="text" name="superstrateman" required><br>
+            Substrate Type: <input type="text" name="substratetype" required><br>
+            Substrate Manufacturer: <input type="text" name="substrateman" required><br>
+            Frame Type: <input type="text" name="frametype" required><br>
+            Frame Adhesive: <input type="text" name="frameadhesive" required><br>
+            Encapsulant Type: <input type="text" name="encapsulanttype" required><br>
+            Encapsulant Manufacturer: <input type="text" name="encapsulantman" required><br>
+            Junction Box Type: <input type="text" name="junctionboxtype" required><br>
+            Junction Box Manufacturer: <input type="text" name="junctionboxman" required><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+        <h3>Test Standard</h3>
+        <form action="/action_page.php" method="get" id="teststandard">
+            Standard ID: <input type="text" name="standardid" required><br>
+            Standard Name: <input type="text" name="standardname" required><br>
+            Description: <input type="text" name="description" required><br>
+            Published Date: <input type="date" name="publisheddate" required><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+        <h3>Certificate</h3>
+        <form action="/action_page.php" method="get" id="certificate">
+            ID: <input type="text" name="id" required><br>
+            Cert Number: <input type="number" name="certnumber" required><br>
+            Location: <input type="text" name="location" required><br>
+            Report Number: <input type="text" name="reportnumber" required><br>
+            Contact ID: <input type="text" name="contactid" required><br>
+            Test Standard: <input type="text" name="teststandard" required><br>
+            Product: <input type="text" name="product" required><br>
+            Cert Issue Date: <input type="date" name="certissuedate" required><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </main>
+    <hr>
+    <footer>
+        <div id="foot">
+            <div>
+                <p>solarPV</p>
+                <address>Address, Phone, Email, Website</address>
+            </div>
+            <hr>
+            <p>Copyright 2020 All Rights Reserved</p>
+        </div>
+        <hr>
+        <nav id="botnav">
+            <a href="sitemap.html">Site Map</a> |
+            <a href="terms.html">Terms & Conditions</a> |
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </footer>
+</body>
+
+</html>
