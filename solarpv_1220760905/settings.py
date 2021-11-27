@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'rest_framework'
 ]
 
-REST_FRAMEWORK = { 
-'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-]
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
 }
 
 
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'solarpv_1220760905.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'/Users/saikumar/Projects/solarpv_1220760905/solarpv/template/solarpv', '../template/solarpv'],
+        'DIRS': [r'/home/rakeshmailaram/solarpv_1220760905/solarpv/templates/solarpv', '../templates/solarpv'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'solarpv_1220760905.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'solar_pv',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': 'solarPV',
+        'USER': 'rakeshmailaram',
+        'PASSWORD': 'Mailaram25@',
+        'HOST': 'rakeshmailaram.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
