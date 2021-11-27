@@ -1,129 +1,125 @@
 from django.db import models
 
-# Create your models here.
-class Client(models.Model):   
-    clientId = models.CharField(max_length=50)
-    client_code = models.CharField(max_length=50)
-    client_name = models.CharField(max_length=50)
-    client_type = models.CharField(max_length=50)
+
+class Client(models.Model):
+    clientid = models.AutoField(primary_key=True)
+    clientname = models.CharField(max_length=200)
+    clienttype = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.client_name
-    
-    class Meta:  
-        db_table = "clients"
+        return self.clientname
 
-class User(models.Model):   
-    User = models.CharField(max_length=50)
-    client_id = models.ForeignKey(Client, null=True, on_delete = models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    middle_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    job_title = models.CharField(max_length=50)
-    email = models.EmailField()
-    officephone = models.CharField(max_length=50)
-    cellphone = models.CharField(max_length=50)
-    prefix = models.CharField(max_length=50)
-    isstaff = models.CharField(max_length=50)
-    
+
+class Testsequence(models.Model):
+    sequence_id = models.AutoField(primary_key=True)
+    sequence_name = models.CharField(max_length=200)
+
     def __str__(self):
-        return self.first_name
+        return self.sequence_name
 
-    class Meta:  
-        db_table = "users"
+
+class Teststandard(models.Model):
+    standardid = models.AutoField(primary_key=True)
+    standardname = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    publisheddate = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.standardname
+
+
+class Product(models.Model):
+    modelnumber = models.AutoField(primary_key=True)
+    productname = models.CharField(max_length=200)
+    celltechnology = models.CharField(max_length=200)
+    cellman = models.CharField(max_length=200)
+    numcells = models.IntegerField()
+    numcellsinseries = models.IntegerField()
+    numseriesstrings = models.IntegerField()
+    numdiodes = models.IntegerField()
+    productlength = models.FloatField()
+    productwidth = models.FloatField()
+    productweight = models.FloatField()
+    superstratetype = models.CharField(max_length=200)
+    superstrateman = models.CharField(max_length=200)
+    substratetype = models.CharField(max_length=200)
+    substrateman = models.CharField(max_length=200)
+    frametype = models.CharField(max_length=200)
+    frameadhesive = models.CharField(max_length=200)
+    encapsulanttype = models.CharField(max_length=200)
+    encapsulantman = models.CharField(max_length=200)
+    junctionboxtype = models.CharField(max_length=200)
+    junctionboxman = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.productname
+
+
+class Service(models.Model):
+    serviceid = models.AutoField(primary_key=True)
+    servicename = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    isfirequired = models.CharField(max_length=3)
+    fifrequency = models.CharField(max_length=200)
+    standardid = models.ForeignKey(Teststandard, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.servicename
+
+
+class User(models.Model):
+    userid = models.AutoField(primary_key=True)
+    firstname = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200)
+    middlename = models.CharField(max_length=200)
+    jobtitle = models.CharField(max_length=200)
+    email = models.EmailField(max_length=200)
+    officephone = models.BigIntegerField()
+    cellphone = models.BigIntegerField()
+    prefix = models.CharField(max_length=200)
+    clientid = models.ForeignKey(Client, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.userid
 
 
 class Location(models.Model):
-    client_id = models.ForeignKey(Client, on_delete = models.CASCADE)
-    address1 = models.CharField(max_length=50)
-    address2 = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
-    postalcode = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
-    phonenumber = models.CharField(max_length=50)
-    fax_number = models.CharField(max_length=50)
+    locationid = models.AutoField(primary_key=True)
+    address1 = models.CharField(max_length=200)
+    address2 = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
+    postalcode = models.IntegerField()
+    country = models.CharField(max_length=200)
+    phonenumber = models.BigIntegerField()
+    faxnumber = models.BigIntegerField()
+    clientid = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.state
-
-    class Meta:  
-        db_table = "locations"
-
-class TestStandard(models.Model):
-    standard_name = models.CharField(max_length=50)
-    description = models.CharField(max_length=50)
-    published_date = models.CharField(max_length=50)
-
-    class Meta:  
-        db_table = "test_standard"
-
-class Service(models.Model):
-    description = models.CharField(max_length=50)
-    is_FI_required = models.CharField(max_length=50)
-    FI_frequency = models.CharField(max_length=50)
-    service_name = models.CharField(max_length=50)
-    test_standard_id = models.ForeignKey(TestStandard, on_delete = models.CASCADE)
-
-    class Meta:  
-        db_table = "services"
+        return self.address1
 
 
-class TestSequence(models.Model):
-    sequence_id = models.CharField(max_length=50)
-    sequence_name = models.CharField(max_length=50)
-
-    class Meta:
-        db_table = "test_sequence"
-
-class Product(models.Model):
-    modelNum = models.CharField(max_length=50)
-    name = models.CharField(max_length=50)
-    cell_technology = models.CharField(max_length=50)
-    cell_manufacturer = models.CharField(max_length=50)
-    number_of_cells = models.CharField(max_length=50)
-    number_of_cells_in_series = models.CharField(max_length=50)
-    number_of_series_strings = models.CharField(max_length=50)
-    number_of_diodes = models.CharField(max_length=50)
-    product_length = models.CharField(max_length=50)
-    product_width = models.CharField(max_length=50)
-    product_weigtht = models.CharField(max_length=50)
-    superstrate_type = models.CharField(max_length=50)
-    Superstrate_manufacturer = models.CharField(max_length=50)
-    substrate_type = models.CharField(max_length=50)
-    Substrate_manufacturer = models.CharField(max_length=50)
-    frame_type = models.CharField(max_length=50)
-    Frame_adhesive = models.CharField(max_length=50)
-    encapsulant_type = models.CharField(max_length=50)
-    encapsulant_manufacturer = models.CharField(max_length=50)
-    junction_box_type = models.CharField(max_length=50)
-    Junction_box_manufacturer = models.CharField(max_length=50)
-    class Meta:  
-        db_table = "products"
-
-class PerformanceData(models.Model):
-    model_num = models.ForeignKey(Product, on_delete = models.CASCADE)
-    test_sequence_id = models.ForeignKey(TestSequence, on_delete = models.CASCADE)
-    max_system_voltage = models.CharField(max_length=50)
-    open_circuit_voltage = models.CharField(max_length=50)
-    short_circuit_current = models.CharField(max_length=50)
-    voltage_at_max_power = models.CharField(max_length=50)
-    current_at_max_power = models.CharField(max_length=50)
-    Max_power_output = models.CharField(max_length=50)
-    fill_factor = models.CharField(max_length=50)
-
-    class Meta:  
-        db_table = "performance_data"
+class Performancedata(models.Model):
+    modelnumber = models.ForeignKey(Product, on_delete=models.CASCADE)
+    sequenceid = models.ForeignKey(Testsequence, on_delete=models.CASCADE)
+    maxsystemvoltage = models.IntegerField()
+    voc = models.FloatField()
+    isc = models.FloatField()
+    vmp = models.FloatField()
+    imp = models.FloatField()
+    pmp = models.FloatField()
+    ff = models.FloatField()
 
 
 class Certificate(models.Model):
-    cert_number = models.CharField(max_length=50)
-    report_number = models.CharField(max_length=50)
-    location_id = models.ForeignKey(Location, on_delete = models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete = models.CASCADE)
-    test_standard_id = models.ForeignKey(TestStandard, on_delete = models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete = models.CASCADE)
-    issue_date = models.CharField(max_length=50)
+    certificatenumber = models.AutoField(primary_key=True)
+    certid = models.CharField(max_length=200)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    reportnumber = models.CharField(max_length=200)
+    issuedate = models.DateField(auto_now_add=True)
+    standardid = models.ForeignKey(Teststandard, on_delete=models.CASCADE)
+    locationid = models.ForeignKey(Location, on_delete=models.CASCADE)
+    modelnumber = models.CharField(max_length=200)
 
-    class Meta:
-        db_table = "certificates"
+    def __str__(self):
+        return self.certid

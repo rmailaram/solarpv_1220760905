@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from solarpv import views
+from solarpv import views, urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('register', views.register, name='register'),
-    path('api/', include('backend.api.url', namespace='api')),
+    path('', include('solarpv.urls')),
+    path('api/', include('backend.urls', namespace='api'))
 ]
